@@ -24,8 +24,11 @@ flutter:
     - assets/icons/
     - assets/
   fonts:
-  - family: DMSans
+  - family: DMSansRegular
     fonts:
       - asset: fonts/DMSans-Regular.ttf
+
+  - family: DMSansBold
+    fonts:
       - asset: fonts/DMSans-Bold.ttf
 
