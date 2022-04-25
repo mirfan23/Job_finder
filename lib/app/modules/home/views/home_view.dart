@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -5,130 +7,200 @@ import 'package:job_finder/app/values/colors.dart';
 import 'package:job_finder/app/values/styles.dart';
 
 import '../controllers/home_controller.dart';
+import '../widgets/jobhunting.dart';
+import '../widgets/subtext.dart';
+import '../widgets/welcome.dart';
 
 class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('HomeView'),
-      //   centerTitle: true,
-      // ),
+      backgroundColor: MyColors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                height: 40,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
+          child: Container(
+            margin: EdgeInsets.symmetric(
+              horizontal: 20,
+            ),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 40,
                 ),
-                child: Stack(
-                  children: [
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: ClipRRect(
+                WelcomeWidget(),
+                SizedBox(
+                  height: 25,
+                ),
+                SubText(),
+                SizedBox(
+                  height: 20,
+                ),
+                JobHunting(),
+                SizedBox(
+                  height: 20,
+                ),
+                SubText2(),
+                ListView.separated(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemBuilder: (_, __) {
+                    return Container(
+                      decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(
-                          Get.width,
+                          10,
                         ),
-                        child: Image(
-                          image: AssetImage(
-                            'assets/images/girl-vektor.jpg',
-                          ),
-                          height: 50,
-                          width: 50,
-                        ),
+                        // border: Border
+                        color: MyColors.purewhite,
                       ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Text(
-                          "Hello \nOrlando Diggs.",
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontFamily: MyStyles.Bold,
-                            color: MyColors.primaryColor,
-                          ),
-                          textAlign: TextAlign.start,
-                        ),
-                        Stack(
-                          alignment: Alignment.bottomRight,
-                          children: [
-                            Container(
-                              // width: double.infinity,
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 30,
-                                vertical: 50,
-                              ),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(
-                                  10,
+                      padding: EdgeInsets.all(
+                        20,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Image(
+                                image: AssetImage(
+                                  'assets/images/logo.png',
                                 ),
-                                color: MyColors.primaryColor,
+                                height: 50,
                               ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Column(
                                 children: [
                                   Text(
-                                    "50% off \ntake any courses",
+                                    "Product Designer",
                                     style: TextStyle(
-                                      fontSize: 18,
-                                      fontFamily: MyStyles.Medium,
-                                      color: MyColors.white,
+                                      color: MyColors.primaryColor,
+                                      fontFamily: MyStyles.Bold,
+                                      fontSize: 22,
                                     ),
                                   ),
-                                  // SizedBox(
-                                  //   height: 20,
-                                  // ),
-                                  // SizedBox(
-                                  //   height: 20,
-                                  // ),
-                                  // SizedBox(
-                                  //   height: 20,
-                                  // ),
-                                  // SizedBox(
-                                  //   height: 20,
-                                  // ),
-                                  // InkWell(
-                                  //   onTap: () {},
-                                  //   child: Container(
-                                  //     color: MyColors.orange,
-                                  //     padding: EdgeInsets.symmetric(
-                                  //       horizontal: 20,
-                                  //       vertical: 20,
-                                  //     ),
-                                  //     child: Text(
-                                  //       "Join Now",
-                                  //       style: TextStyle(
-                                  //         color: MyColors.white,
-                                  //         fontSize: 18,
-                                  //       ),
-                                  //     ),
-                                  //   ),
-                                  // ),
+                                  Text("Google inc . California, USA"),
                                 ],
                               ),
+                              Spacer(),
+                              Icon(
+                                Icons.bookmark_outline,
+                                size: 30,
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  style: TextStyle(
+                                    color: MyColors.primaryColor,
+                                    fontSize: 20,
+                                    fontFamily: MyStyles.Bold,
+                                  ),
+                                  text: "\$15K",
+                                ),
+                                TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      style: TextStyle(
+                                        color: MyColors.darkGray,
+                                        fontSize: 18,
+                                      ),
+                                      text: "/Mo",
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
-                            Image(
-                              image: AssetImage(
-                                'assets/images/mentor.png',
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Row(
+                            children: [
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 17,
+                                  vertical: 5,
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(
+                                    5,
+                                  ),
+                                  color: MyColors.whiteGrey,
+                                ),
+                                child: Text(
+                                  "Senior Designer",
+                                  style: TextStyle(
+                                    color: MyColors.darkGray,
+                                    fontSize: 15,
+                                    fontFamily: MyStyles.Regular,
+                                  ),
+                                ),
                               ),
-                              height: Get.width * 0.5,
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-              )
-            ],
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 13,
+                                  vertical: 5,
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(
+                                    5,
+                                  ),
+                                  color: MyColors.whiteGrey,
+                                ),
+                                child: Text(
+                                  "Full Time",
+                                  style: TextStyle(
+                                    color: MyColors.darkGray,
+                                    fontSize: 15,
+                                    fontFamily: MyStyles.Regular,
+                                  ),
+                                ),
+                              ),
+                              Spacer(),
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 10,
+                                  vertical: 5,
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(
+                                    5,
+                                  ),
+                                  color: MyColors.lightcream,
+                                ),
+                                child: Text(
+                                  "Apply",
+                                  style: TextStyle(
+                                    color: MyColors.darkGray,
+                                    fontSize: 15,
+                                    fontFamily: MyStyles.Regular,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                  separatorBuilder: (_, __) {
+                    return SizedBox(
+                      height: 20,
+                    );
+                  },
+                  itemCount: 5,
+                )
+              ],
+            ),
           ),
         ),
       ),
