@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import 'package:job_finder/app/modules/home/bindings/home_binding.dart';
 import 'package:job_finder/app/modules/home/views/home_view.dart';
+import 'package:job_finder/app/modules/login/bindings/login_binding.dart';
+import 'package:job_finder/app/modules/login/views/login_view.dart';
 import 'package:job_finder/app/modules/splash_screen/bindings/splash_screen_binding.dart';
 import 'package:job_finder/app/modules/splash_screen/views/splash_screen_view.dart';
 
@@ -14,6 +16,7 @@ class AppPages {
 
   static const INITIAL_HM = Routes.HOME;
   static const INITIAL_SS = Routes.SPLASH_SCREEN;
+  static const INITIAL_LG = Routes.LOGIN;
 
   static final routes = [
     GetPage(
@@ -25,6 +28,11 @@ class AppPages {
       name: _Paths.SPLASH_SCREEN,
       page: () => SplashScreenView(),
       binding: SplashScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.LOGIN,
+      page: () => LoginView(),
+      binding: LoginBinding(),
     ),
   ];
 }

@@ -6,6 +6,7 @@ class MyColors {
   static Color secondaryColor = Color.fromRGBO(214, 205, 254, 1);
   static Color content = Color.fromRGBO(82, 75, 107, 1);
   static Color subTittle = Color.fromRGBO(21, 11, 61, 1);
+  static Color disable = Color.fromRGBO(82, 75, 107, 1);
 
   // Secondary Colors
   static Color green = Color.fromRGBO(34, 176, 125, 1);
