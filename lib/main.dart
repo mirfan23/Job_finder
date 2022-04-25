@@ -11,17 +11,18 @@ void main() {
     AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
         statusBarColor:
-            MyColors.primaryColor, //set as per your  status bar color
+            Colors.transparent, //set as per your  status bar color
         systemNavigationBarColor:
             MyColors.white, //set as per your navigation bar color
         statusBarIconBrightness:
-            Brightness.light, //set as per your status bar icons' color
+            Brightness.dark, //set as per your status bar icons' color
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
       child: GetMaterialApp(
         title: "Application",
-        initialRoute: AppPages.INITIAL,
+        initialRoute: AppPages.INITIAL_SS,
         getPages: AppPages.routes,
+        debugShowCheckedModeBanner: false,
       ),
     ),
   );

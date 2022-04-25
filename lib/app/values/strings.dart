@@ -1,1 +1,3 @@
-class MyStrings {}
+class MyStrings {
+  
+}
