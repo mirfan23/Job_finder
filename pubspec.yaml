@@ -32,3 +32,7 @@ flutter:
     fonts:
       - asset: fonts/DMSans-Bold.ttf
 
+  - family: DMSansMedium
+    fonts:
+      - asset: fonts/DMSans-Medium.ttf
+

@@ -3,4 +3,5 @@
 class MyStyles {
   static var Bold = "DMSansBold";
   static var Regular = "DMSansRegular";
+  static var Medium = "DMSansMedium";
 }
