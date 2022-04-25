@@ -4,6 +4,8 @@ import 'package:job_finder/app/modules/home/bindings/home_binding.dart';
 import 'package:job_finder/app/modules/home/views/home_view.dart';
 import 'package:job_finder/app/modules/login/bindings/login_binding.dart';
 import 'package:job_finder/app/modules/login/views/login_view.dart';
+import 'package:job_finder/app/modules/search/bindings/search_binding.dart';
+import 'package:job_finder/app/modules/search/views/search_view.dart';
 import 'package:job_finder/app/modules/splash_screen/bindings/splash_screen_binding.dart';
 import 'package:job_finder/app/modules/splash_screen/views/splash_screen_view.dart';
 
@@ -34,5 +36,10 @@ class AppPages {
       page: () => LoginView(),
       binding: LoginBinding(),
     ),
+    GetPage(
+      name: _Paths.SEARCH,
+      page: () => SearchView(),
+      binding: SearchBinding(),
+    )
   ];
 }
