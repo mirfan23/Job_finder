@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
@@ -15,7 +14,7 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyColors.white,
+      backgroundColor: MyColors.white.withOpacity(0.99),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -98,7 +97,7 @@ class HomeView extends GetView<HomeController> {
                                 TextSpan(
                                   style: TextStyle(
                                     color: MyColors.primaryColor,
-                                    fontSize: 20,
+                                    fontSize: 14,
                                     fontFamily: MyStyles.Bold,
                                   ),
                                   text: "\$15K",

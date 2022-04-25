@@ -85,7 +85,7 @@ class SplashScreenView extends GetView<SplashScreenController> {
                   message: "Next",
                   child: InkWell(
                     onTap: () {
-                      Get.offNamed(AppPages.INITIAL_HM);
+                      Get.offNamed(AppPages.INITIAL_LG);
                     },
                     borderRadius: BorderRadius.circular(Get.width),
                     child: Container(
