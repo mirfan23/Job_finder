@@ -103,6 +103,9 @@ class SplashScreenView extends GetView<SplashScreenController> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 20,
+              ),
             ],
           ),
         ),

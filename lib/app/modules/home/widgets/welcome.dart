@@ -44,7 +44,7 @@ class WelcomeWidget extends GetView<HomeController> {
         ),
         Padding(
           padding: EdgeInsets.only(
-            top: 80,
+            top: 100,
           ),
           child: Stack(
             alignment: Alignment.bottomRight,

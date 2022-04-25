@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -75,16 +74,28 @@ class HomeView extends GetView<HomeController> {
                                     style: TextStyle(
                                       color: MyColors.primaryColor,
                                       fontFamily: MyStyles.Bold,
-                                      fontSize: 22,
+                                      fontSize: 18,
                                     ),
                                   ),
                                   Text("Google inc . California, USA"),
                                 ],
                               ),
                               Spacer(),
-                              Icon(
-                                Icons.bookmark_outline,
-                                size: 30,
+                              GestureDetector(
+                                onTap: () {
+                                  controller.bookmark.toggle();
+                                },
+                                child: Obx(
+                                  () => Icon(
+                                    controller.bookmark.isTrue
+                                        ? Icons.bookmark
+                                        : Icons.bookmark_outline,
+                                    size: 30,
+                                    color: controller.bookmark.isTrue
+                                        ? Colors.yellow[600]
+                                        : MyColors.grey,
+                                  ),
+                                ),
                               )
                             ],
                           ),
@@ -107,7 +118,7 @@ class HomeView extends GetView<HomeController> {
                                     TextSpan(
                                       style: TextStyle(
                                         color: MyColors.darkGray,
-                                        fontSize: 18,
+                                        fontSize: 13,
                                       ),
                                       text: "/Mo",
                                     ),
@@ -136,7 +147,7 @@ class HomeView extends GetView<HomeController> {
                                   "Senior Designer",
                                   style: TextStyle(
                                     color: MyColors.darkGray,
-                                    fontSize: 15,
+                                    fontSize: 12,
                                     fontFamily: MyStyles.Regular,
                                   ),
                                 ),
@@ -159,7 +170,7 @@ class HomeView extends GetView<HomeController> {
                                   "Full Time",
                                   style: TextStyle(
                                     color: MyColors.darkGray,
-                                    fontSize: 15,
+                                    fontSize: 12,
                                     fontFamily: MyStyles.Regular,
                                   ),
                                 ),
@@ -180,7 +191,7 @@ class HomeView extends GetView<HomeController> {
                                   "Apply",
                                   style: TextStyle(
                                     color: MyColors.darkGray,
-                                    fontSize: 15,
+                                    fontSize: 12,
                                     fontFamily: MyStyles.Regular,
                                   ),
                                 ),
