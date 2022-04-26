@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:job_finder/app/routes/app_pages.dart';
+import 'package:job_finder/app/modules/login/widgets/lgn_button_primary_widget.dart';
+import 'package:job_finder/app/modules/login/widgets/lgn_button_secondary_widget.dart';
+import 'package:job_finder/app/modules/login/widgets/lgn_question_text_button_widget.dart';
+import 'package:job_finder/app/modules/login/widgets/lgn_text_field_widget.dart';
 import 'package:job_finder/app/values/colors.dart';
-import 'package:job_finder/app/values/styles.dart';
 
-import '../controllers/login_controller.dart';
-import '../widgets/lgn_button_primary_widget.dart';
-import '../widgets/lgn_button_secondary_widget.dart';
-import '../widgets/lgn_question_text_button_widget.dart';
-import '../widgets/lgn_text_field_widget.dart';
+import '../../../values/styles.dart';
+import '../controllers/sign_up_controller.dart';
 
-class LoginView extends GetView<LoginController> {
+class SignUpView extends GetView<SignUpController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,13 +25,30 @@ class LoginView extends GetView<LoginController> {
                 SizedBox(
                   height: 40,
                 ),
-                tittle(),
+                tittle("Create an Account"),
                 SizedBox(
                   height: 10,
                 ),
-                tittleContent(),
+                tittleContent(
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+                ),
                 SizedBox(
                   height: 40,
+                ),
+                textFieldLabel("Fullname"),
+                SizedBox(
+                  height: 10,
+                ),
+                LGNTextFieldWidget(
+                  textController: controller.fullnameController,
+                  hint: "Your fullname here...",
+                  errorController: controller.fullnameIsError,
+                  errorText: "* Please enter first name and last name",
+                  obscureText: false,
+                  suffix: false,
+                ),
+                SizedBox(
+                  height: 20,
                 ),
                 textFieldLabel("Email"),
                 SizedBox(
@@ -53,17 +69,15 @@ class LoginView extends GetView<LoginController> {
                 SizedBox(
                   height: 10,
                 ),
-                Obx(
-                  () => LGNTextFieldWidget(
-                    textController: controller.passwordController,
-                    hint: "Your password here...",
-                    errorController: controller.passwordIsError,
-                    errorText:
-                        "* Password must be more then 8 character\n* First character must be uppercase\n",
-                    obscureText: controller.passwordVisible.value,
-                    suffix: true,
-                    passwordController: controller.passwordVisible,
-                  ),
+                LGNTextFieldWidget(
+                  textController: controller.passwordController,
+                  hint: "Your password here...",
+                  errorController: controller.passwordIsError,
+                  errorText:
+                      "* Password must be more then 8 character\n* First character must be uppercase\n",
+                  obscureText: controller.visiblePassword.value,
+                  suffix: true,
+                  passwordController: controller.visiblePassword,
                 ),
                 SizedBox(
                   height: 20,
@@ -74,9 +88,9 @@ class LoginView extends GetView<LoginController> {
                 ),
                 LGNButtonPrimary(
                   onPressed: () {
-                    controller.login();
+                    controller.signup();
                   },
-                  text: "LOGIN",
+                  text: "SIGN UP",
                   backgroundColor: MyColors.primaryColor,
                 ),
                 SizedBox(
@@ -84,7 +98,7 @@ class LoginView extends GetView<LoginController> {
                 ),
                 LGNButtonSecondary(
                   onPressed: () {},
-                  text: "SIGN IN WITH GOOGLE",
+                  text: "SIGN UP WITH GOOGLE",
                   image: "assets/images/google 2.png",
                 ),
                 SizedBox(
@@ -92,10 +106,13 @@ class LoginView extends GetView<LoginController> {
                 ),
                 LGNQuestionTextButtonWidget(
                   text: "You don't have an account yet? ",
-                  textButton: "Sign Up",
+                  textButton: "Sign In",
                   onTap: () {
-                    Get.toNamed(AppPages.INITIAL_SU);
+                    Get.back();
                   },
+                ),
+                SizedBox(
+                  height: 20,
                 ),
               ],
             ),
@@ -176,12 +193,12 @@ class LoginView extends GetView<LoginController> {
     );
   }
 
-  Widget tittleContent() {
+  Widget tittleContent(String tittleContent) {
     return Center(
       child: SizedBox(
         width: Get.width * 0.7,
         child: Text(
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+          tittleContent,
           textAlign: TextAlign.center,
           style: TextStyle(
             fontFamily: MyStyles.Regular,
@@ -193,10 +210,10 @@ class LoginView extends GetView<LoginController> {
     );
   }
 
-  Widget tittle() {
+  Widget tittle(String tittle) {
     return Center(
       child: Text(
-        "Welcome Back",
+        tittle,
         textAlign: TextAlign.center,
         style: TextStyle(
           fontFamily: MyStyles.Bold,
