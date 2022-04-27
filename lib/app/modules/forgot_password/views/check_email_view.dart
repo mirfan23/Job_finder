@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-import 'package:job_finder/app/modules/login/widgets/lgn_text_field_widget.dart';
+import 'package:job_finder/app/modules/forgot_password/controllers/forgot_password_controller.dart';
+import 'package:job_finder/app/modules/forgot_password/views/successfully_view.dart';
+import 'package:job_finder/app/modules/login/widgets/lgn_question_text_button_widget.dart';
 import 'package:job_finder/app/routes/app_pages.dart';
 import 'package:job_finder/app/values/colors.dart';
 
 import '../../../values/styles.dart';
-import '../controllers/forgot_password_controller.dart';
 
-class ForgotPasswordView extends GetView<ForgotPasswordController> {
+class CheckEmailView extends GetView<ForgotPasswordController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,49 +18,34 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
                   height: 40,
                 ),
-                tittle("Create an Account"),
+                tittle("Check Your Email"),
                 SizedBox(
                   height: 10,
                 ),
                 tittleContent(
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+                  "We have sent the reset password to the email address brandonelouis@gmial.com",
                 ),
                 SizedBox(
                   height: 40,
                 ),
                 Center(
                   child: Image(
-                    image: AssetImage("assets/images/forgot_image.png"),
+                    image: AssetImage(
+                        "assets/images/undraw_message_sent_re_q2kl 1.png"),
                   ),
                 ),
                 SizedBox(
                   height: 40,
                 ),
-                textFieldLabel("Email"),
-                SizedBox(
-                  height: 10,
-                ),
-                LGNTextFieldWidget(
-                  textController: controller.emailController,
-                  hint: "Your email here...",
-                  errorController: controller.emailIsError,
-                  errorText: "* Invalid email",
-                  obscureText: false,
-                  suffix: false,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
                 customButton(
                   () {
-                    controller.forgotPassword();
+                    Get.to(SuccessfullyView());
                   },
-                  "FORGOT PASSWORD",
+                  "OPEN YOUR EMAIL",
                   MyColors.primaryColor,
                 ),
                 SizedBox(
@@ -72,6 +57,16 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                   },
                   "BACK TO LOGIN",
                   MyColors.secondaryColor,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                LGNQuestionTextButtonWidget(
+                  text: "You have not received the email?",
+                  textButton: "Resend",
+                  onTap: () {
+                    print("Resend");
+                  },
                 ),
                 SizedBox(
                   height: 20,

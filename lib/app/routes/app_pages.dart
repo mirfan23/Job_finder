@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:job_finder/app/modules/forgot_password/bindings/forgot_password_binding.dart';
+import 'package:job_finder/app/modules/forgot_password/views/forgot_password_view.dart';
 
 import 'package:job_finder/app/modules/add_job/bindings/add_job_binding.dart';
 import 'package:job_finder/app/modules/add_job/views/add_job_view.dart';
@@ -37,6 +39,7 @@ class AppPages {
   static const INITIAL_PS = Routes.POSTING;
   static const INITIAL_SJ = Routes.SAVE_JOB;
   static const INITIAL_AJ = Routes.ADD_JOB;
+  static const INITIAL_FP = Routes.FORGOT_PASSWORD;
 
   static final routes = [
     GetPage(
@@ -88,6 +91,11 @@ class AppPages {
       name: _Paths.ADD_JOB,
       page: () => AddJobView(),
       binding: AddJobBinding(),
+    ),
+    GetPage(
+      name: _Paths.FORGOT_PASSWORD,
+      page: () => ForgotPasswordView(),
+      binding: ForgotPasswordBinding(),
     ),
   ];
 }
