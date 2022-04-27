@@ -146,7 +146,9 @@ class LoginView extends GetView<LoginController> {
         ),
         Spacer(),
         InkWell(
-          onTap: () {},
+          onTap: () {
+            Get.toNamed(AppPages.INITIAL_FP);
+          },
           borderRadius: BorderRadius.circular(Get.width),
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 10),

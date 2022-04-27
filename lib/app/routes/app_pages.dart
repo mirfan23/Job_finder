@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:job_finder/app/modules/forgot_password/bindings/forgot_password_binding.dart';
+import 'package:job_finder/app/modules/forgot_password/views/forgot_password_view.dart';
 
 import 'package:job_finder/app/modules/home/bindings/home_binding.dart';
 import 'package:job_finder/app/modules/home/views/home_view.dart';
@@ -22,6 +24,7 @@ class AppPages {
   static const INITIAL_SS = Routes.SPLASH_SCREEN;
   static const INITIAL_LG = Routes.LOGIN;
   static const INITIAL_SU = Routes.SIGN_UP;
+  static const INITIAL_FP = Routes.FORGOT_PASSWORD;
 
   static final routes = [
     GetPage(
@@ -48,6 +51,11 @@ class AppPages {
       name: _Paths.SIGN_UP,
       page: () => SignUpView(),
       binding: SignUpBinding(),
-    )
+    ),
+    GetPage(
+      name: _Paths.FORGOT_PASSWORD,
+      page: () => ForgotPasswordView(),
+      binding: ForgotPasswordBinding(),
+    ),
   ];
 }

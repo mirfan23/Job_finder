@@ -1,6 +1,7 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:job_finder/app/modules/forgot_password/views/check_email_view.dart';
 
 class ForgotPasswordController extends GetxController {
   var emailIsError = false.obs;
@@ -20,6 +21,7 @@ class ForgotPasswordController extends GetxController {
 
     if (emailIsError.value == false) {
       print("Success");
+      Get.to(CheckEmailView());
     }
   }
 
