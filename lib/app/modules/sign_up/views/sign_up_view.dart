@@ -5,6 +5,7 @@ import 'package:job_finder/app/modules/login/widgets/lgn_button_primary_widget.d
 import 'package:job_finder/app/modules/login/widgets/lgn_button_secondary_widget.dart';
 import 'package:job_finder/app/modules/login/widgets/lgn_question_text_button_widget.dart';
 import 'package:job_finder/app/modules/login/widgets/lgn_text_field_widget.dart';
+import 'package:job_finder/app/routes/app_pages.dart';
 import 'package:job_finder/app/values/colors.dart';
 
 import '../../../values/styles.dart';
@@ -108,7 +109,7 @@ class SignUpView extends GetView<SignUpController> {
                   text: "You don't have an account yet? ",
                   textButton: "Sign In",
                   onTap: () {
-                    Get.back();
+                    Get.offAllNamed(AppPages.INITIAL_LG);
                   },
                 ),
                 SizedBox(
