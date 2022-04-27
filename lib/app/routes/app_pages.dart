@@ -35,6 +35,7 @@ class AppPages {
   static const INITIAL_LG = Routes.LOGIN;
   static const INITIAL_SU = Routes.SIGN_UP;
   static const INITIAL_NV = Routes.NAVIGATION;
+  static const INITIAL_S = Routes.SEARCH;
   static const INITIAL_MS = Routes.MESSAGE;
   static const INITIAL_PS = Routes.POSTING;
   static const INITIAL_SJ = Routes.SAVE_JOB;
