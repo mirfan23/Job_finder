@@ -37,7 +37,7 @@ class LoginController extends GetxController {
 
     if (emailIsError.value == false && passwordIsError.value == false) {
       // Login Success
-      Get.offNamed(AppPages.INITIAL_HM);
+      Get.offNamed(AppPages.INITIAL_NV);
     }
   }
 

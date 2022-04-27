@@ -9,54 +9,59 @@ class JobHunting extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: Get.width * 0.6 ,
+      height: Get.width * 0.5,
       child: Row(
         children: [
           Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(
-                  10,
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Expanded(
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(
+                        10,
+                      ),
+                      color: MyColors.blue,
+                    ),
+                    height: Get.height * 0.30,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image(
+                          image: AssetImage(
+                            "assets/images/jobhunting.png",
+                          ),
+                          height: Get.width * 0.1,
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "44.5k",
+                          style: TextStyle(
+                            color: MyColors.primaryColor,
+                            fontFamily: MyStyles.Bold,
+                            fontSize: 22,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "Remote Job",
+                          style: TextStyle(
+                            color: MyColors.primaryColor,
+                            fontFamily: MyStyles.Regular,
+                            fontSize: 22,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
                 ),
-                color: MyColors.blue,
-              ),
-              // padding: EdgeInsets.symmetric(
-              //   vertical: 20,
-              // ),
-              height: Get.height * 0.30,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image(
-                    image: AssetImage(
-                      "assets/images/jobhunting.png",
-                    ),
-                    height: Get.width * 0.1,
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    "44.5k",
-                    style: TextStyle(
-                      color: MyColors.primaryColor,
-                      fontFamily: MyStyles.Bold,
-                      fontSize: 22,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    "Remote Job",
-                    style: TextStyle(
-                      color: MyColors.primaryColor,
-                      fontFamily: MyStyles.Regular,
-                      fontSize: 22,
-                    ),
-                  )
-                ],
-              ),
+              ],
             ),
           ),
           SizedBox(
@@ -73,9 +78,6 @@ class JobHunting extends GetView<HomeController> {
                       ),
                       color: MyColors.purple,
                     ),
-                    // padding: EdgeInsets.all(
-                    //   17,
-                    // ),
                     width: Get.width * 0.8,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -114,9 +116,6 @@ class JobHunting extends GetView<HomeController> {
                       ),
                       color: MyColors.cream,
                     ),
-                    // padding: EdgeInsets.all(
-                    //   17,
-                    // ),
                     width: Get.width * 0.8,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,

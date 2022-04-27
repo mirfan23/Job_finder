@@ -1,9 +1,19 @@
 import 'package:get/get.dart';
 
+import 'package:job_finder/app/modules/add_job/bindings/add_job_binding.dart';
+import 'package:job_finder/app/modules/add_job/views/add_job_view.dart';
 import 'package:job_finder/app/modules/home/bindings/home_binding.dart';
 import 'package:job_finder/app/modules/home/views/home_view.dart';
 import 'package:job_finder/app/modules/login/bindings/login_binding.dart';
 import 'package:job_finder/app/modules/login/views/login_view.dart';
+import 'package:job_finder/app/modules/message/bindings/message_binding.dart';
+import 'package:job_finder/app/modules/message/views/message_view.dart';
+import 'package:job_finder/app/modules/navigation/bindings/navigation_binding.dart';
+import 'package:job_finder/app/modules/navigation/views/navigation_view.dart';
+import 'package:job_finder/app/modules/posting/bindings/posting_binding.dart';
+import 'package:job_finder/app/modules/posting/views/posting_view.dart';
+import 'package:job_finder/app/modules/save_job/bindings/save_job_binding.dart';
+import 'package:job_finder/app/modules/save_job/views/save_job_view.dart';
 import 'package:job_finder/app/modules/search/bindings/search_binding.dart';
 import 'package:job_finder/app/modules/search/views/search_view.dart';
 import 'package:job_finder/app/modules/sign_up/bindings/sign_up_binding.dart';
@@ -22,6 +32,11 @@ class AppPages {
   static const INITIAL_SS = Routes.SPLASH_SCREEN;
   static const INITIAL_LG = Routes.LOGIN;
   static const INITIAL_SU = Routes.SIGN_UP;
+  static const INITIAL_NV = Routes.NAVIGATION;
+  static const INITIAL_MS = Routes.MESSAGE;
+  static const INITIAL_PS = Routes.POSTING;
+  static const INITIAL_SJ = Routes.SAVE_JOB;
+  static const INITIAL_AJ = Routes.ADD_JOB;
 
   static final routes = [
     GetPage(
@@ -48,6 +63,31 @@ class AppPages {
       name: _Paths.SIGN_UP,
       page: () => SignUpView(),
       binding: SignUpBinding(),
-    )
+    ),
+    GetPage(
+      name: _Paths.NAVIGATION,
+      page: () => NavigationView(),
+      binding: NavigationBinding(),
+    ),
+    GetPage(
+      name: _Paths.POSTING,
+      page: () => PostingView(),
+      binding: PostingBinding(),
+    ),
+    GetPage(
+      name: _Paths.MESSAGE,
+      page: () => MessageView(),
+      binding: MessageBinding(),
+    ),
+    GetPage(
+      name: _Paths.SAVE_JOB,
+      page: () => SaveJobView(),
+      binding: SaveJobBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADD_JOB,
+      page: () => AddJobView(),
+      binding: AddJobBinding(),
+    ),
   ];
 }
