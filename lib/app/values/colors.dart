@@ -22,4 +22,8 @@ class MyColors {
   static Color whiteGrey = Color.fromRGBO(235, 235, 239, 1);
   static Color white = Color.fromRGBO(249, 249, 249, 1);
   static Color lineDark = Color.fromRGBO(234, 234, 234, 1);
+
+  //description header
+  static Color bgHeader = Color(0xffF2F2F2);
+  static Color grey90 = Color(0xffAAA6B9);
 }
