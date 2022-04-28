@@ -2,39 +2,40 @@ name: job_finder
 version: 1.0.0+1
 publish_to: none
 description: A new Flutter project.
-environment: 
-  sdk: '>=2.16.1 <3.0.0'
+environment:
+  sdk: ">=2.16.1 <3.0.0"
 
-dependencies: 
+dependencies:
   cupertino_icons: ^1.0.2
   get: 4.6.1
-  flutter: 
+  flutter:
     sdk: flutter
   # Email Validator
   email_validator: ^2.0.1
+  # Staggred Grid VIew
+  staggered_grid_view_flutter: ^0.0.4
 
-dev_dependencies: 
+dev_dependencies:
   flutter_lints: ^1.0.0
   lints: 1.0.1
-  flutter_test: 
+  flutter_test:
     sdk: flutter
 
-flutter: 
+flutter:
   uses-material-design: true
   assets:
     - assets/images/
     - assets/icons/
     - assets/
   fonts:
-  - family: DMSansRegular
-    fonts:
-      - asset: fonts/DMSans-Regular.ttf
+    - family: DMSansRegular
+      fonts:
+        - asset: fonts/DMSans-Regular.ttf
 
-  - family: DMSansBold
-    fonts:
-      - asset: fonts/DMSans-Bold.ttf
+    - family: DMSansBold
+      fonts:
+        - asset: fonts/DMSans-Bold.ttf
 
-  - family: DMSansMedium
-    fonts:
-      - asset: fonts/DMSans-Medium.ttf
-
+    - family: DMSansMedium
+      fonts:
+        - asset: fonts/DMSans-Medium.ttf

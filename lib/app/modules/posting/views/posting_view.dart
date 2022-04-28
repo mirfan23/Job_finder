@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:job_finder/app/modules/navigation/controllers/navigation_controller.dart';
+import 'package:job_finder/app/modules/posting/views/my_connection_view.dart';
 import 'package:job_finder/app/values/colors.dart';
 import 'package:job_finder/app/values/styles.dart';
 
@@ -236,7 +237,7 @@ class PostingView extends GetView<PostingController> {
                                 ),
                                 customButton(
                                   () {
-                                    print("My Connection");
+                                    Get.to(MyConnectionView());
                                   },
                                   MyColors.primaryColor,
                                   MyColors.white,

@@ -34,13 +34,38 @@ class NavigationView extends GetView<NavigationController> {
           children: List.generate(
             5,
             (index) {
-              return buttomNavigation(
-                () {
-                  controller.navigationIndex.value = index;
-                },
-                MyStrings.listNavigationIcon[index],
-                index,
-              );
+              return index == 2
+                  ? Expanded(
+                      child: SizedBox(
+                      height: Get.height * 0.1,
+                      child: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: InkWell(
+                          onTap: () {
+                            controller.navigationIndex.value = index;
+                          },
+                          borderRadius: BorderRadius.circular(Get.width),
+                          highlightColor: MyColors.white,
+                          focusColor: MyColors.white,
+                          hoverColor: MyColors.white,
+                          splashColor: MyColors.white,
+                          child: CircleAvatar(
+                            backgroundColor: MyColors.primaryColor,
+                            child: Icon(
+                              Icons.add_rounded,
+                              color: MyColors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
+                  : buttomNavigation(
+                      () {
+                        controller.navigationIndex.value = index;
+                      },
+                      MyStrings.listNavigationIcon[index],
+                      index,
+                    );
             },
           ),
         ),
@@ -52,17 +77,19 @@ class NavigationView extends GetView<NavigationController> {
     return Obx(
       () => Expanded(
         child: SizedBox(
-          height: 30,
-          width: 30,
+          height: Get.height * 0.1,
           child: InkWell(
             onTap: onTap,
-            child: Image(
-              image: assetImage,
-              color: controller.navigationIndex.value == index
-                  ? MyColors.primaryColor
-                  : MyColors.grey.withOpacity(
-                      0.5,
-                    ),
+            child: Padding(
+              padding: EdgeInsets.all(20),
+              child: Image(
+                image: assetImage,
+                color: controller.navigationIndex.value == index
+                    ? MyColors.primaryColor
+                    : MyColors.grey.withOpacity(
+                        0.5,
+                      ),
+              ),
             ),
           ),
         ),
