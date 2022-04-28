@@ -12,6 +12,15 @@ abstract class Routes {
   static const DESCRIPTION = _Paths.DESCRIPTION;
   static const UPLOAD_CV = _Paths.UPLOAD_CV;
   static const UPLOAD_SUCCESS = _Paths.UPLOAD_SUCCESS;
+  static const SEARCH = _Paths.SEARCH;
+  static const SIGN_UP = _Paths.SIGN_UP;
+  static const NAVIGATION = _Paths.NAVIGATION;
+  static const POSTING = _Paths.POSTING;
+  static const MESSAGE = _Paths.MESSAGE;
+  static const SAVEJOB = _Paths.SAVEJOB;
+  static const SAVE_JOB = _Paths.SAVE_JOB;
+  static const ADD_JOB = _Paths.ADD_JOB;
+  static const FORGOT_PASSWORD = _Paths.FORGOT_PASSWORD;
 }
 
 abstract class _Paths {
@@ -21,4 +30,13 @@ abstract class _Paths {
   static const DESCRIPTION = '/description';
   static const UPLOAD_CV = '/upload-cv';
   static const UPLOAD_SUCCESS = '/upload-success';
+  static const SEARCH = '/search';
+  static const SIGN_UP = '/sign-up';
+  static const NAVIGATION = '/navigation';
+  static const POSTING = '/posting';
+  static const MESSAGE = '/message';
+  static const SAVEJOB = '/savejob';
+  static const SAVE_JOB = '/save-job';
+  static const ADD_JOB = '/add-job';
+  static const FORGOT_PASSWORD = '/forgot-password';
 }

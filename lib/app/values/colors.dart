@@ -13,6 +13,9 @@ class MyColors {
   static Color orange = Color.fromRGBO(252, 163, 77, 1);
   static Color red = Color.fromRGBO(251, 65, 65, 1);
   static Color blue = Color.fromRGBO(175, 236, 254, 1);
+  static Color purple = Color.fromRGBO(190, 175, 254, 1);
+  static Color cream = Color.fromRGBO(255, 214, 173, 1);
+  static Color lightcream = Color.fromRGBO(253, 224, 213, 1);
 
   // Text Colors
   static Color black = Color.fromRGBO(23, 23, 37, 1);
@@ -21,6 +24,7 @@ class MyColors {
   static Color grey50 = Color.fromRGBO(146, 146, 157, 0.5);
   static Color whiteGrey = Color.fromRGBO(235, 235, 239, 1);
   static Color white = Color.fromRGBO(249, 249, 249, 1);
+  static Color purewhite = Color.fromRGBO(255, 255, 255, 1);
   static Color lineDark = Color.fromRGBO(234, 234, 234, 1);
 
   //description header
