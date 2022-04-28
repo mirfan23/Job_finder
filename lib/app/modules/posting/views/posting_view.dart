@@ -53,7 +53,7 @@ class PostingView extends GetView<PostingController> {
                               topLeft: Radius.circular(20),
                               topRight: Radius.circular(20),
                             ),
-                            color: MyColors.grey.withOpacity(0.2),
+                            color: MyColors.secondaryColor.withOpacity(0.2),
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,

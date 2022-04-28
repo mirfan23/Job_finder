@@ -9,6 +9,9 @@ abstract class Routes {
   static const HOME = _Paths.HOME;
   static const SPLASH_SCREEN = _Paths.SPLASH_SCREEN;
   static const LOGIN = _Paths.LOGIN;
+  static const DESCRIPTION = _Paths.DESCRIPTION;
+  static const UPLOAD_CV = _Paths.UPLOAD_CV;
+  static const UPLOAD_SUCCESS = _Paths.UPLOAD_SUCCESS;
   static const SEARCH = _Paths.SEARCH;
   static const SIGN_UP = _Paths.SIGN_UP;
   static const NAVIGATION = _Paths.NAVIGATION;
@@ -24,6 +27,9 @@ abstract class _Paths {
   static const HOME = '/home';
   static const SPLASH_SCREEN = '/splash-screen';
   static const LOGIN = '/login';
+  static const DESCRIPTION = '/description';
+  static const UPLOAD_CV = '/upload-cv';
+  static const UPLOAD_SUCCESS = '/upload-success';
   static const SEARCH = '/search';
   static const SIGN_UP = '/sign-up';
   static const NAVIGATION = '/navigation';
