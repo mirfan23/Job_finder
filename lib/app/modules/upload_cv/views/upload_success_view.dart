@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:job_finder/app/modules/description/views/appbar_custom.dart';
 import 'package:job_finder/app/modules/upload_cv/controllers/upload_cv_controller.dart';
+import 'package:job_finder/app/routes/app_pages.dart';
 import 'package:job_finder/app/values/colors.dart';
 
 class UploadSuccessView extends GetView<UploadCvController> {
@@ -139,7 +140,9 @@ class UploadSuccessView extends GetView<UploadCvController> {
                 "BACK TO HOME",
                 style: TextStyle(fontFamily: "DMSansBold"),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed(Routes.HOME);
+              },
               style: ElevatedButton.styleFrom(
                 primary: MyColors.primaryColor,
               ),
