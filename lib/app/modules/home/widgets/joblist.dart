@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:job_finder/app/routes/app_pages.dart';
 
 import '../../../values/colors.dart';
 import '../../../values/styles.dart';
@@ -171,7 +172,7 @@ class JobList extends GetView<HomeController> {
                         ),
                       ),
                       onTap: () {
-                        Get.toNamed("");
+                        Get.toNamed(Routes.DESCRIPTION);
                       },
                     ),
                   ),

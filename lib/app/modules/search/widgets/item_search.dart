@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:job_finder/app/modules/search/views/button_item_search.dart';
+import 'package:job_finder/app/modules/search/widgets/button_item_search.dart';
 import 'package:job_finder/app/values/styles.dart';
 
 class ItemSearch extends StatelessWidget {

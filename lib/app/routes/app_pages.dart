@@ -1,4 +1,21 @@
 import 'package:get/get.dart';
+<<<<<<< HEAD
+=======
+import 'package:job_finder/app/modules/upload_cv/views/upload_success_view.dart';
+
+import '../modules/description/bindings/description_binding.dart';
+import '../modules/description/views/description_view.dart';
+import '../modules/home/bindings/home_binding.dart';
+import '../modules/home/views/home_view.dart';
+import '../modules/login/bindings/login_binding.dart';
+import '../modules/login/views/login_view.dart';
+import '../modules/splash_screen/bindings/splash_screen_binding.dart';
+import '../modules/splash_screen/views/splash_screen_view.dart';
+import '../modules/upload_cv/bindings/upload_cv_binding.dart';
+import '../modules/upload_cv/views/upload_cv_view.dart';
+import 'package:job_finder/app/modules/forgot_password/bindings/forgot_password_binding.dart';
+import 'package:job_finder/app/modules/forgot_password/views/forgot_password_view.dart';
+>>>>>>> 65a23c9e69d8fbc69a63ed135e7da9ea56ec1e2c
 
 import 'package:job_finder/app/modules/add_job/bindings/add_job_binding.dart';
 import 'package:job_finder/app/modules/add_job/views/add_job_view.dart';
@@ -35,6 +52,7 @@ class AppPages {
   static const INITIAL_HM = Routes.HOME;
   static const INITIAL_SS = Routes.SPLASH_SCREEN;
   static const INITIAL_LG = Routes.LOGIN;
+  static const INITIAL_DC = Routes.DESCRIPTION;
   static const INITIAL_SU = Routes.SIGN_UP;
   static const INITIAL_NV = Routes.NAVIGATION;
   static const INITIAL_S = Routes.SEARCH;
@@ -60,6 +78,21 @@ class AppPages {
       name: _Paths.LOGIN,
       page: () => LoginView(),
       binding: LoginBinding(),
+    ),
+    GetPage(
+      name: _Paths.DESCRIPTION,
+      page: () => DescriptionView(),
+      binding: DescriptionBinding(),
+    ),
+    GetPage(
+      name: _Paths.UPLOAD_CV,
+      page: () => UploadCvView(),
+      binding: UploadCvBinding(),
+    ),
+    GetPage(
+      name: _Paths.UPLOAD_SUCCESS,
+      page: () => UploadSuccessView(),
+      binding: UploadCvBinding(),
     ),
     GetPage(
       name: _Paths.SEARCH,
