@@ -1,9 +1,11 @@
 import 'package:get/get.dart';
-import 'package:job_finder/app/modules/forgot_password/bindings/forgot_password_binding.dart';
-import 'package:job_finder/app/modules/forgot_password/views/forgot_password_view.dart';
 
 import 'package:job_finder/app/modules/add_job/bindings/add_job_binding.dart';
 import 'package:job_finder/app/modules/add_job/views/add_job_view.dart';
+import 'package:job_finder/app/modules/company_page/bindings/company_page_binding.dart';
+import 'package:job_finder/app/modules/company_page/views/company_page_view.dart';
+import 'package:job_finder/app/modules/forgot_password/bindings/forgot_password_binding.dart';
+import 'package:job_finder/app/modules/forgot_password/views/forgot_password_view.dart';
 import 'package:job_finder/app/modules/home/bindings/home_binding.dart';
 import 'package:job_finder/app/modules/home/views/home_view.dart';
 import 'package:job_finder/app/modules/login/bindings/login_binding.dart';
@@ -41,6 +43,7 @@ class AppPages {
   static const INITIAL_SJ = Routes.SAVE_JOB;
   static const INITIAL_AJ = Routes.ADD_JOB;
   static const INITIAL_FP = Routes.FORGOT_PASSWORD;
+  static const INITIAL_CP = Routes.COMPANY_PAGE;
 
   static final routes = [
     GetPage(
@@ -97,6 +100,11 @@ class AppPages {
       name: _Paths.FORGOT_PASSWORD,
       page: () => ForgotPasswordView(),
       binding: ForgotPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.COMPANY_PAGE,
+      page: () => CompanyPageView(),
+      binding: CompanyPageBinding(),
     ),
   ];
 }

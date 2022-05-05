@@ -8,4 +8,10 @@ class MyStrings {
     AssetImage('assets/icons/icon_chat.png'),
     AssetImage('assets/icons/icon_save.png'),
   ];
+
+  static var listTabCompany = [
+    "About us",
+    "Post",
+    "Jobs",
+  ];
 }
