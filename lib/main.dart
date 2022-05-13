@@ -26,7 +26,7 @@ void main() {
         title: "Application",
         // initialRoute: AppPages.INITIAL_SS,
         // initialRoute: AppPages.INITIAL_NV,
-        initialRoute: AppPages.INITIAL_CP,
+        initialRoute: AppPages.INITIAL_NV,
         getPages: AppPages.routes,
         debugShowCheckedModeBanner: false,
       ),

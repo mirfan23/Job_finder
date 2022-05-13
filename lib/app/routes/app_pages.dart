@@ -1,23 +1,13 @@
 import 'package:get/get.dart';
-import 'package:job_finder/app/modules/upload_cv/views/upload_success_view.dart';
-
-import '../modules/description/bindings/description_binding.dart';
-import '../modules/description/views/description_view.dart';
-import '../modules/home/bindings/home_binding.dart';
-import '../modules/home/views/home_view.dart';
-import '../modules/login/bindings/login_binding.dart';
-import '../modules/login/views/login_view.dart';
-import '../modules/splash_screen/bindings/splash_screen_binding.dart';
-import '../modules/splash_screen/views/splash_screen_view.dart';
-import '../modules/upload_cv/bindings/upload_cv_binding.dart';
-import '../modules/upload_cv/views/upload_cv_view.dart';
-import 'package:job_finder/app/modules/forgot_password/bindings/forgot_password_binding.dart';
-import 'package:job_finder/app/modules/forgot_password/views/forgot_password_view.dart';
 
 import 'package:job_finder/app/modules/add_job/bindings/add_job_binding.dart';
 import 'package:job_finder/app/modules/add_job/views/add_job_view.dart';
 import 'package:job_finder/app/modules/company_page/bindings/company_page_binding.dart';
 import 'package:job_finder/app/modules/company_page/views/company_page_view.dart';
+import 'package:job_finder/app/modules/create_job_post/bindings/create_job_post_binding.dart';
+import 'package:job_finder/app/modules/create_job_post/views/create_job_post_view.dart';
+import 'package:job_finder/app/modules/forgot_password/bindings/forgot_password_binding.dart';
+import 'package:job_finder/app/modules/forgot_password/views/forgot_password_view.dart';
 import 'package:job_finder/app/modules/home/bindings/home_binding.dart';
 import 'package:job_finder/app/modules/home/views/home_view.dart';
 import 'package:job_finder/app/modules/login/bindings/login_binding.dart';
@@ -36,6 +26,18 @@ import 'package:job_finder/app/modules/sign_up/bindings/sign_up_binding.dart';
 import 'package:job_finder/app/modules/sign_up/views/sign_up_view.dart';
 import 'package:job_finder/app/modules/splash_screen/bindings/splash_screen_binding.dart';
 import 'package:job_finder/app/modules/splash_screen/views/splash_screen_view.dart';
+import 'package:job_finder/app/modules/upload_cv/views/upload_success_view.dart';
+
+import '../modules/description/bindings/description_binding.dart';
+import '../modules/description/views/description_view.dart';
+import '../modules/home/bindings/home_binding.dart';
+import '../modules/home/views/home_view.dart';
+import '../modules/login/bindings/login_binding.dart';
+import '../modules/login/views/login_view.dart';
+import '../modules/splash_screen/bindings/splash_screen_binding.dart';
+import '../modules/splash_screen/views/splash_screen_view.dart';
+import '../modules/upload_cv/bindings/upload_cv_binding.dart';
+import '../modules/upload_cv/views/upload_cv_view.dart';
 
 // ignore_for_file: constant_identifier_names
 
@@ -57,6 +59,7 @@ class AppPages {
   static const INITIAL_AJ = Routes.ADD_JOB;
   static const INITIAL_FP = Routes.FORGOT_PASSWORD;
   static const INITIAL_CP = Routes.COMPANY_PAGE;
+  static const INITIAL_JP = Routes.CREATE_JOB_POST;
 
   static final routes = [
     GetPage(
@@ -133,6 +136,11 @@ class AppPages {
       name: _Paths.COMPANY_PAGE,
       page: () => CompanyPageView(),
       binding: CompanyPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.CREATE_JOB_POST,
+      page: () => CreateJobPostView(),
+      binding: CreateJobPostBinding(),
     ),
   ];
 }
