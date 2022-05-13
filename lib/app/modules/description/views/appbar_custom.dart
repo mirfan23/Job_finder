@@ -1,6 +1,8 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_view.dart';
+// import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:job_finder/app/modules/description/controllers/description_controller.dart';
 import 'package:job_finder/app/values/colors.dart';
 

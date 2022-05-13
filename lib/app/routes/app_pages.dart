@@ -1,6 +1,4 @@
 import 'package:get/get.dart';
-<<<<<<< HEAD
-=======
 import 'package:job_finder/app/modules/upload_cv/views/upload_success_view.dart';
 
 import '../modules/description/bindings/description_binding.dart';
@@ -15,14 +13,11 @@ import '../modules/upload_cv/bindings/upload_cv_binding.dart';
 import '../modules/upload_cv/views/upload_cv_view.dart';
 import 'package:job_finder/app/modules/forgot_password/bindings/forgot_password_binding.dart';
 import 'package:job_finder/app/modules/forgot_password/views/forgot_password_view.dart';
->>>>>>> 65a23c9e69d8fbc69a63ed135e7da9ea56ec1e2c
 
 import 'package:job_finder/app/modules/add_job/bindings/add_job_binding.dart';
 import 'package:job_finder/app/modules/add_job/views/add_job_view.dart';
 import 'package:job_finder/app/modules/company_page/bindings/company_page_binding.dart';
 import 'package:job_finder/app/modules/company_page/views/company_page_view.dart';
-import 'package:job_finder/app/modules/forgot_password/bindings/forgot_password_binding.dart';
-import 'package:job_finder/app/modules/forgot_password/views/forgot_password_view.dart';
 import 'package:job_finder/app/modules/home/bindings/home_binding.dart';
 import 'package:job_finder/app/modules/home/views/home_view.dart';
 import 'package:job_finder/app/modules/login/bindings/login_binding.dart';

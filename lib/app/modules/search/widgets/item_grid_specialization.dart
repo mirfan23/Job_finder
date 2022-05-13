@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:job_finder/app/values/styles.dart';
@@ -19,7 +19,6 @@ class ItemGridSpecialization extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Obx(() => InkWell(
           onTap: () => state.toggle(),
           child: Container(

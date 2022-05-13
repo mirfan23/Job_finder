@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:job_finder/app/modules/search/views/spezialication_view.dart';
 import 'package:job_finder/app/modules/search/widgets/item_list_filter.dart';
 import 'package:job_finder/app/modules/search/widgets/item_search.dart';
-import 'package:job_finder/app/values/styles.dart';
+// import 'package:job_finder/app/values/styles.dart';
 
 import '../controllers/search_controller.dart';
 

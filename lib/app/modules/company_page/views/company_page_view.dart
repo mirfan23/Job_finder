@@ -7,6 +7,8 @@ import 'package:job_finder/app/values/styles.dart';
 
 import '../controllers/company_page_controller.dart';
 import '../screens/cpn_about_us_screen.dart';
+import '../screens/cpn_jobs_screen.dart';
+import '../screens/cpn_post_screen.dart';
 
 class CompanyPageView extends GetView<CompanyPageController> {
   @override
@@ -26,48 +28,63 @@ class CompanyPageView extends GetView<CompanyPageController> {
               SizedBox(
                 height: 20,
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: List.generate(
-                    MyStrings.listTabCompany.length,
-                    (index) {
-                      return companyTab(index);
-                    },
-                  ),
-                ),
-              ),
+              companyTab(),
               SizedBox(
                 height: 20,
               ),
-              Obx(
-                () => controller.tabCompany.value == 0
-                    ? CPNAboutUsScreen()
-                    : controller.tabCompany.value == 1
-                        ? CPNPostScreen()
-                        : controller.tabCompany.value == 2
-                            ? CPNJobsScreen()
-                            : CPNAboutUsScreen(),
-              )
+              screenController()
             ],
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        width: Get.width,
-        color: Colors.white,
-        child: Padding(
-          padding: EdgeInsets.all(10),
-          child: Row(
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  controller.bookmarkCompany.toggle();
-                },
+      bottomNavigationBar: navigationBottom(),
+    );
+  }
+
+  Widget navigationBottom() {
+    return Container(
+      width: Get.width,
+      color: Colors.white,
+      child: Padding(
+        padding: EdgeInsets.all(10),
+        child: Row(
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                controller.bookmarkCompany.toggle();
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                  MyColors.secondaryColor.withOpacity(0.3),
+                ),
+                shape: MaterialStateProperty.all<OutlinedBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                padding: MaterialStateProperty.all<EdgeInsets>(
+                  EdgeInsets.all(15),
+                ),
+                elevation: MaterialStateProperty.all<double>(0),
+              ),
+              child: Obx(
+                () => Icon(
+                  Icons.bookmark_outline_outlined,
+                  color: controller.bookmarkCompany.value
+                      ? MyColors.orange
+                      : MyColors.primaryColor,
+                ),
+              ),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Expanded(
+              child: ElevatedButton(
+                onPressed: () {},
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(
-                    MyColors.secondaryColor.withOpacity(0.3),
+                    MyColors.primaryColor,
                   ),
                   shape: MaterialStateProperty.all<OutlinedBorder>(
                     RoundedRectangleBorder(
@@ -75,57 +92,39 @@ class CompanyPageView extends GetView<CompanyPageController> {
                     ),
                   ),
                   padding: MaterialStateProperty.all<EdgeInsets>(
-                    EdgeInsets.all(15),
+                    EdgeInsets.symmetric(vertical: 15),
                   ),
                   elevation: MaterialStateProperty.all<double>(0),
                 ),
-                child: Obx(
-                  () => Icon(
-                    Icons.bookmark_outline_outlined,
-                    color: controller.bookmarkCompany.value
-                        ? MyColors.orange
-                        : MyColors.primaryColor,
+                child: Text(
+                  "APPLY NOW",
+                  style: TextStyle(
+                    fontFamily: MyStyles.Bold,
+                    fontSize: 14,
+                    color: MyColors.white,
                   ),
                 ),
               ),
-              SizedBox(
-                width: 10,
-              ),
-              Expanded(
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                      MyColors.primaryColor,
-                    ),
-                    shape: MaterialStateProperty.all<OutlinedBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    padding: MaterialStateProperty.all<EdgeInsets>(
-                      EdgeInsets.symmetric(vertical: 15),
-                    ),
-                    elevation: MaterialStateProperty.all<double>(0),
-                  ),
-                  child: Text(
-                    "APPLY NOW",
-                    style: TextStyle(
-                      fontFamily: MyStyles.Bold,
-                      fontSize: 14,
-                      color: MyColors.white,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
   }
 
-  Padding actionButton() {
+  Widget screenController() {
+    return Obx(
+      () => controller.tabCompany.value == 0
+          ? CPNAboutUsScreen()
+          : controller.tabCompany.value == 1
+              ? CPNPostScreen()
+              : controller.tabCompany.value == 2
+                  ? CPNJobsScreen()
+                  : CPNAboutUsScreen(),
+    );
+  }
+
+  Widget actionButton() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20),
       child: Row(
@@ -221,7 +220,7 @@ class CompanyPageView extends GetView<CompanyPageController> {
     );
   }
 
-  Stack headerCompany() {
+  Widget headerCompany() {
     return Stack(
       children: [
         Padding(
@@ -358,305 +357,54 @@ class CompanyPageView extends GetView<CompanyPageController> {
     );
   }
 
-  Widget companyTab(int index) {
-    return Obx(
-      () => Expanded(
-        child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 5),
-          child: ElevatedButton(
-            onPressed: () {
-              controller.tabCompany.value = index;
-            },
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all<Color>(
-                controller.tabCompany.value == index
-                    ? MyColors.orange
-                    : MyColors.white,
-              ),
-              shape: MaterialStateProperty.all<OutlinedBorder>(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-              padding: MaterialStateProperty.all<EdgeInsets>(
-                EdgeInsets.symmetric(vertical: 15),
-              ),
-              elevation: MaterialStateProperty.all<double>(0),
-            ),
-            child: Text(
-              MyStrings.listTabCompany[index],
-              style: TextStyle(
-                fontFamily: MyStyles.Bold,
-                fontSize: 14,
-                color: controller.tabCompany.value == index
-                    ? MyColors.white
-                    : MyColors.black,
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class CPNJobsScreen extends StatelessWidget {
-  const CPNJobsScreen({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column();
-  }
-}
-
-class CPNPostScreen extends StatelessWidget {
-  const CPNPostScreen({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: MyColors.white,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage("assets/images/google_logo.png"),
+  Widget companyTab() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 15),
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        children: List.generate(
+          MyStrings.listTabCompany.length,
+          (index) {
+            return Obx(
+              () => Expanded(
+                child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 5),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      controller.tabCompany.value = index;
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        controller.tabCompany.value == index
+                            ? MyColors.orange
+                            : MyColors.white,
+                      ),
+                      shape: MaterialStateProperty.all<OutlinedBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      padding: MaterialStateProperty.all<EdgeInsets>(
+                        EdgeInsets.symmetric(vertical: 15),
+                      ),
+                      elevation: MaterialStateProperty.all<double>(0),
                     ),
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Google Inc",
+                    child: Text(
+                      MyStrings.listTabCompany[index],
                       style: TextStyle(
                         fontFamily: MyStyles.Bold,
-                        fontSize: 12,
-                        color: MyColors.primaryColor,
+                        fontSize: 14,
+                        color: controller.tabCompany.value == index
+                            ? MyColors.white
+                            : MyColors.black,
                       ),
                     ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.access_time_rounded,
-                          color: MyColors.grey,
-                          size: 15,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          "21 minuts ago",
-                          style: TextStyle(
-                            fontFamily: MyStyles.Regular,
-                            fontSize: 10,
-                            color: MyColors.grey,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Text(
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco labo",
-              style: TextStyle(
-                fontFamily: MyStyles.Regular,
-                fontSize: 12,
-                color: MyColors.content,
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Container(
-            width: double.infinity,
-            height: Get.height * 0.25,
-            margin: EdgeInsets.symmetric(horizontal: 20),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: AssetImage("assets/images/header-search.png"),
-              ),
-            ),
-            child: Container(
-              height: double.infinity,
-              width: double.infinity,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: MyColors.black.withOpacity(0.5),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Container(
-                height: 50,
-                width: 50,
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: MyColors.white.withOpacity(0.5),
-                  borderRadius: BorderRadius.circular(Get.width),
-                ),
-                child: Icon(
-                  Icons.play_arrow_rounded,
-                ),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Text(
-              "What's it like to work at Google?",
-              style: TextStyle(
-                fontFamily: MyStyles.Bold,
-                fontSize: 12,
-                color: MyColors.subTittle,
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 5,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Text(
-              "Youtube.com",
-              style: TextStyle(
-                fontFamily: MyStyles.Regular,
-                fontSize: 10,
-                color: MyColors.content,
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Container(
-            width: double.infinity,
-            padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(10),
-                bottomRight: Radius.circular(10),
-              ),
-              color: MyColors.secondaryColor,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                InkWell(
-                  onTap: () {},
-                  borderRadius: BorderRadius.circular(Get.width),
-                  child: Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Icon(
-                      Icons.favorite_outline_rounded,
-                      color: MyColors.primaryColor,
-                      size: 24,
-                    ),
                   ),
                 ),
-                Text(
-                  "12",
-                  style: TextStyle(
-                    fontFamily: MyStyles.Regular,
-                    fontSize: 12,
-                    color: MyColors.grey,
-                  ),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                InkWell(
-                  onTap: () {},
-                  borderRadius: BorderRadius.circular(Get.width),
-                  child: Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Icon(
-                      Icons.mode_comment_outlined,
-                      color: MyColors.primaryColor,
-                      size: 24,
-                    ),
-                  ),
-                ),
-                Text(
-                  "12",
-                  style: TextStyle(
-                    fontFamily: MyStyles.Regular,
-                    fontSize: 12,
-                    color: MyColors.grey,
-                  ),
-                ),
-                Spacer(),
-                InkWell(
-                  onTap: () {},
-                  borderRadius: BorderRadius.circular(Get.width),
-                  child: Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Icon(
-                      Icons.share_rounded,
-                      color: MyColors.primaryColor,
-                      size: 24,
-                    ),
-                  ),
-                ),
-                Text(
-                  "12",
-                  style: TextStyle(
-                    fontFamily: MyStyles.Regular,
-                    fontSize: 12,
-                    color: MyColors.grey,
-                  ),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-        ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }
