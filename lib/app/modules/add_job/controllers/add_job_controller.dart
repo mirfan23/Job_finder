@@ -3,9 +3,12 @@ import 'package:get/get.dart';
 
 class AddJobController extends GetxController {
   late TextEditingController searchController;
-  var searchValue = "".obs;
-  var typeOfWorkplaceIndex = 0.obs;
+  late TextEditingController descriptionController;
 
+  var typeOfWorkplaceIndex = 0.obs;
+  var jobTypeIndex = 0.obs;
+
+  var searchValue = "".obs;
   var jobPosition = "".obs;
   var typeOfWorkplace = "".obs;
   var jobLocation = "".obs;
@@ -17,12 +20,14 @@ class AddJobController extends GetxController {
   void onInit() {
     super.onInit();
     searchController = TextEditingController();
+    descriptionController = TextEditingController();
   }
 
   @override
   void dispose() {
     super.dispose();
     searchController.dispose();
+    descriptionController.dispose();
 
     jobPosition.value = "";
     typeOfWorkplace.value = "";
@@ -50,6 +55,17 @@ class AddJobController extends GetxController {
 
   void addJobCompany(int index) {
     company.value = listJobCompany[index][0].toString();
+    backResetSearch();
+  }
+
+  void addJobType(int index) {
+    jobTypeIndex.value = index + 1;
+    employmentType.value = listJobType[index];
+    backResetSearch();
+  }
+
+  void addDescription(String value) {
+    description.value = value;
     backResetSearch();
   }
 
@@ -134,5 +150,14 @@ class AddJobController extends GetxController {
       "Company",
       "Insurance",
     ],
+  ];
+
+  var listJobType = [
+    "Full time",
+    "Part time",
+    "Contract",
+    "Temporary",
+    "Volunteer",
+    "Apprenticeship",
   ];
 }

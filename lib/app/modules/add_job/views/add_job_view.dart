@@ -86,63 +86,7 @@ class AddJobView extends GetView<AddJobController> {
               addJobField(
                 () {
                   Get.bottomSheet(
-                    Container(
-                      padding: EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        color: MyColors.white,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20),
-                        ),
-                      ),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 5,
-                            width: Get.width * 0.3,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(Get.width),
-                              color: MyColors.primaryColor,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            "Choose the type of workplace",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontFamily: MyStyles.Bold,
-                              fontSize: 16,
-                              color: MyColors.subTittle,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            "Decide and choose the type of place to work according to what you want",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontFamily: MyStyles.Regular,
-                              fontSize: 12,
-                              color: MyColors.content,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Column(
-                            children: List.generate(
-                              3,
-                              (index) {
-                                return addTypeOfWorkplaceButton(index);
-                              },
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
+                    addJobFieldBottomSheet(),
                   );
                 },
                 "Type of workplace",
@@ -172,7 +116,11 @@ class AddJobView extends GetView<AddJobController> {
                 height: 10,
               ),
               addJobField(
-                () {},
+                () {
+                  Get.bottomSheet(
+                    addEmploymentTypeBottomShet(),
+                  );
+                },
                 "Employment type",
                 controller.employmentType,
               ),
@@ -180,13 +128,311 @@ class AddJobView extends GetView<AddJobController> {
                 height: 10,
               ),
               addJobField(
-                () {},
+                () {
+                  Get.dialog(
+                    Dialog(
+                      child: Wrap(
+                        children: [
+                          Container(
+                            padding: EdgeInsets.all(20),
+                            decoration: BoxDecoration(
+                              color: MyColors.white,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Column(
+                              children: [
+                                Text(
+                                  "Add Description",
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                    fontFamily: MyStyles.Bold,
+                                    fontSize: 14,
+                                    color: MyColors.subTittle,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                TextField(
+                                  controller: controller.descriptionController,
+                                  textAlign: TextAlign.start,
+                                  textAlignVertical: TextAlignVertical.center,
+                                  keyboardType: TextInputType.multiline,
+                                  maxLines: 10,
+                                  cursorColor: MyColors.primaryColor,
+                                  style: TextStyle(
+                                    fontFamily: MyStyles.Regular,
+                                    fontSize: 12,
+                                    color: MyColors.subTittle,
+                                  ),
+                                  decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: Colors.white,
+                                    border: InputBorder.none,
+                                    hintText: "What do you want to talk about?",
+                                    hintStyle: TextStyle(
+                                      fontFamily: MyStyles.Regular,
+                                      fontSize: 12,
+                                      color: MyColors.grey,
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide.none,
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide.none,
+                                    ),
+                                    contentPadding: EdgeInsets.all(20),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    controller.addDescription(
+                                      controller.descriptionController.text,
+                                    );
+                                  },
+                                  style: ButtonStyle(
+                                    minimumSize:
+                                        MaterialStateProperty.all<Size>(
+                                      Size(
+                                        double.infinity,
+                                        45,
+                                      ),
+                                    ),
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                      MyColors.primaryColor,
+                                    ),
+                                    shape: MaterialStateProperty.all<
+                                        OutlinedBorder>(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "Add",
+                                    textAlign: TextAlign.start,
+                                    style: TextStyle(
+                                      fontFamily: MyStyles.Bold,
+                                      fontSize: 14,
+                                      color: MyColors.white,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                },
                 "Description",
                 controller.description,
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget addJobFieldBottomSheet() {
+    return Container(
+      padding: EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: MyColors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+      ),
+      child: Column(
+        children: [
+          Container(
+            height: 5,
+            width: Get.width * 0.3,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(Get.width),
+              color: MyColors.primaryColor,
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            "Choose the type of workplace",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: MyStyles.Bold,
+              fontSize: 16,
+              color: MyColors.subTittle,
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            "Decide and choose the type of place to work according to what you want",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: MyStyles.Regular,
+              fontSize: 12,
+              color: MyColors.content,
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Column(
+            children: List.generate(
+              3,
+              (index) {
+                return addTypeOfWorkplaceButton(index);
+              },
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget addEmploymentTypeBottomShet() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+        color: MyColors.white,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            width: Get.width * 0.3,
+            height: 5,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(Get.width),
+              color: MyColors.primaryColor,
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            "Choose Job Type",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: MyStyles.Bold,
+              fontSize: 16,
+              color: MyColors.subTittle,
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          SizedBox(
+            width: Get.width * 0.8,
+            child: Text(
+              "Determine and choose the type of work according to what you want",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: MyStyles.Regular,
+                fontSize: 12,
+                color: MyColors.content,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Expanded(
+            child: ListView.separated(
+              itemBuilder: (_, index) {
+                return InkWell(
+                  onTap: () {
+                    controller.addJobType(index);
+                  },
+                  borderRadius: BorderRadius.circular(10),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        controller.listJobType[index].toString(),
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          fontFamily: MyStyles.Bold,
+                          fontSize: 14,
+                          color: MyColors.subTittle,
+                        ),
+                      ),
+                      Spacer(),
+                      Obx(
+                        () {
+                          return controller.jobTypeIndex.value == index + 1
+                              ? Container(
+                                  padding: EdgeInsets.all(2),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(
+                                      Get.width,
+                                    ),
+                                    color: MyColors.orange,
+                                  ),
+                                  child: Container(
+                                    height: 12,
+                                    width: 12,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(
+                                        Get.width,
+                                      ),
+                                      border: Border.all(
+                                        width: 2,
+                                        color: MyColors.white,
+                                      ),
+                                      color: MyColors.orange,
+                                    ),
+                                  ),
+                                )
+                              : Container(
+                                  height: 15,
+                                  width: 15,
+                                  padding: EdgeInsets.all(2),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(
+                                      Get.width,
+                                    ),
+                                    border: Border.all(
+                                      width: 2,
+                                      color: MyColors.primaryColor,
+                                    ),
+                                    color: MyColors.white,
+                                  ),
+                                );
+                        },
+                      ),
+                    ],
+                  ),
+                );
+              },
+              separatorBuilder: (_, __) {
+                return SizedBox(
+                  height: 20,
+                );
+              },
+              itemCount: controller.listJobType.length,
+            ),
+          ),
+        ],
       ),
     );
   }
