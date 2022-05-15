@@ -34,12 +34,23 @@ class AddJobController extends GetxController {
 
   void addJobPosition(int index) {
     jobPosition.value = listjobPosition[index].toString();
-    Get.back();
+    backResetSearch();
   }
 
   void addTypeOfWorkplace(int index) {
     typeOfWorkplaceIndex.value = index + 1;
     typeOfWorkplace.value = listTypeOfWorkplace[index][0];
+    Get.back();
+  }
+
+  void addJobLocation(int index) {
+    jobLocation.value = listLocation[index].toString();
+    backResetSearch();
+  }
+
+  void backResetSearch() {
+    searchController.text = "";
+    searchValue.value = "";
     Get.back();
   }
 
@@ -54,6 +65,11 @@ class AddJobController extends GetxController {
     "Accountant",
     "Sales Advocate",
     "Analyst",
+  ];
+  var listLocation = [
+    "Califon, United States",
+    "California, United States",
+    "California City, United States",
   ];
 
   var listTypeOfWorkplace = [

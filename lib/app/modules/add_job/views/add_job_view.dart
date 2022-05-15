@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:job_finder/app/modules/add_job/views/job_position_view.dart';
+import 'package:job_finder/app/modules/add_job/views/location_view.dart';
 
 import '../../../values/colors.dart';
 import '../../../values/styles.dart';
@@ -150,7 +151,9 @@ class AddJobView extends GetView<AddJobController> {
                 height: 10,
               ),
               addJobField(
-                () {},
+                () {
+                  Get.to(LocationView());
+                },
                 "Job location",
                 controller.jobLocation,
               ),

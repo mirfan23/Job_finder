@@ -5,7 +5,7 @@ import 'package:job_finder/app/values/colors.dart';
 
 import '../../../values/styles.dart';
 
-class JobPositionView extends StatelessWidget {
+class LocationView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(AddJobController());
@@ -13,7 +13,10 @@ class JobPositionView extends StatelessWidget {
       backgroundColor: MyColors.white,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          padding: EdgeInsets.symmetric(
+            horizontal: 20,
+            vertical: MediaQuery.of(context).padding.top,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -58,7 +61,6 @@ class JobPositionView extends StatelessWidget {
                   controller: controller.searchController,
                   textAlign: TextAlign.start,
                   textAlignVertical: TextAlignVertical.center,
-                  // keyboardType: TextInputType.,
                   cursorColor: MyColors.primaryColor,
                   style: TextStyle(
                     fontFamily: MyStyles.Regular,
@@ -114,7 +116,7 @@ class JobPositionView extends StatelessWidget {
                 itemBuilder: (_, index) {
                   return InkWell(
                     onTap: () {
-                      controller.addJobPosition(index);
+                      controller.addJobLocation(index);
                     },
                     borderRadius: BorderRadius.circular(10),
                     child: Padding(
@@ -123,7 +125,7 @@ class JobPositionView extends StatelessWidget {
                         vertical: 10,
                       ),
                       child: Text(
-                        controller.listjobPosition[index],
+                        controller.listLocation[index],
                         textAlign: TextAlign.start,
                         style: TextStyle(
                           fontFamily: MyStyles.Regular,
@@ -139,7 +141,7 @@ class JobPositionView extends StatelessWidget {
                     height: 20,
                   );
                 },
-                itemCount: controller.listjobPosition.length,
+                itemCount: controller.listLocation.length,
               ),
             ],
           ),
