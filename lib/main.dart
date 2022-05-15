@@ -24,9 +24,7 @@ void main() {
       ),
       child: GetMaterialApp(
         title: "Application",
-        // initialRoute: AppPages.INITIAL_SS,
-        // initialRoute: AppPages.INITIAL_NV,
-        initialRoute: AppPages.INITIAL_PJ,
+        initialRoute: AppPages.INITIAL_AJ,
         getPages: AppPages.routes,
         debugShowCheckedModeBanner: false,
       ),

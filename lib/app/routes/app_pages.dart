@@ -1,7 +1,5 @@
 import 'package:get/get.dart';
 
-import 'package:job_finder/app/modules/add_job/bindings/add_job_binding.dart';
-import 'package:job_finder/app/modules/add_job/views/add_job_view.dart';
 import 'package:job_finder/app/modules/company_page/bindings/company_page_binding.dart';
 import 'package:job_finder/app/modules/company_page/views/company_page_view.dart';
 import 'package:job_finder/app/modules/create_job_post/bindings/create_job_post_binding.dart';
@@ -16,8 +14,6 @@ import 'package:job_finder/app/modules/message/bindings/message_binding.dart';
 import 'package:job_finder/app/modules/message/views/message_view.dart';
 import 'package:job_finder/app/modules/navigation/bindings/navigation_binding.dart';
 import 'package:job_finder/app/modules/navigation/views/navigation_view.dart';
-import 'package:job_finder/app/modules/post_job/bindings/post_job_binding.dart';
-import 'package:job_finder/app/modules/post_job/views/post_job_view.dart';
 import 'package:job_finder/app/modules/posting/bindings/posting_binding.dart';
 import 'package:job_finder/app/modules/posting/views/posting_view.dart';
 import 'package:job_finder/app/modules/save_job/bindings/save_job_binding.dart';
@@ -30,6 +26,10 @@ import 'package:job_finder/app/modules/splash_screen/bindings/splash_screen_bind
 import 'package:job_finder/app/modules/splash_screen/views/splash_screen_view.dart';
 import 'package:job_finder/app/modules/upload_cv/views/upload_success_view.dart';
 
+import '../modules/add_job/bindings/add_job_binding.dart';
+import '../modules/add_job/views/add_job_view.dart';
+import '../modules/add_post/bindings/add_post_binding.dart';
+import '../modules/add_post/views/add_post_view.dart';
 import '../modules/description/bindings/description_binding.dart';
 import '../modules/description/views/description_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -58,11 +58,10 @@ class AppPages {
   static const INITIAL_MS = Routes.MESSAGE;
   static const INITIAL_PS = Routes.POSTING;
   static const INITIAL_SJ = Routes.SAVE_JOB;
-  static const INITIAL_AJ = Routes.ADD_JOB;
   static const INITIAL_FP = Routes.FORGOT_PASSWORD;
   static const INITIAL_CP = Routes.COMPANY_PAGE;
-  static const INITIAL_JP = Routes.CREATE_JOB_POST;
-  static const INITIAL_PJ = Routes.POST_JOB;
+  static const INITIAL_AJ = Routes.ADD_JOB;
+  static const INITIAL_AP = Routes.ADD_POST;
 
   static final routes = [
     GetPage(
@@ -126,11 +125,6 @@ class AppPages {
       binding: SaveJobBinding(),
     ),
     GetPage(
-      name: _Paths.ADD_JOB,
-      page: () => AddJobView(),
-      binding: AddJobBinding(),
-    ),
-    GetPage(
       name: _Paths.FORGOT_PASSWORD,
       page: () => ForgotPasswordView(),
       binding: ForgotPasswordBinding(),
@@ -146,9 +140,14 @@ class AppPages {
       binding: CreateJobPostBinding(),
     ),
     GetPage(
-      name: _Paths.POST_JOB,
-      page: () => PostJobView(),
-      binding: PostJobBinding(),
+      name: _Paths.ADD_JOB,
+      page: () => AddJobView(),
+      binding: AddJobBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADD_POST,
+      page: () => AddPostView(),
+      binding: AddPostBinding(),
     ),
   ];
 }

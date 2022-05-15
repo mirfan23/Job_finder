@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:job_finder/app/values/colors.dart';
-import 'package:job_finder/app/values/styles.dart';
 
-import '../controllers/post_job_controller.dart';
+import '../../../values/colors.dart';
+import '../../../values/styles.dart';
+import '../controllers/add_post_controller.dart';
 
-class PostJobView extends GetView<PostJobController> {
+class AddPostView extends GetView<AddPostController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,7 +95,7 @@ class PostJobView extends GetView<PostJobController> {
                         textAlign: TextAlign.start,
                         style: TextStyle(
                           fontFamily: MyStyles.Regular,
-                          fontSize: 14,
+                          fontSize: 12,
                           color: MyColors.content,
                         ),
                       ),
