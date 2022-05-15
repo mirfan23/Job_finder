@@ -23,6 +23,7 @@ abstract class Routes {
   static const FORGOT_PASSWORD = _Paths.FORGOT_PASSWORD;
   static const COMPANY_PAGE = _Paths.COMPANY_PAGE;
   static const CREATE_JOB_POST = _Paths.CREATE_JOB_POST;
+  static const POST_JOB = _Paths.POST_JOB;
 }
 
 abstract class _Paths {
@@ -43,4 +44,5 @@ abstract class _Paths {
   static const FORGOT_PASSWORD = '/forgot-password';
   static const COMPANY_PAGE = '/company-page';
   static const CREATE_JOB_POST = '/create-job-post';
+  static const POST_JOB = '/post-job';
 }

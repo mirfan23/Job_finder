@@ -16,6 +16,8 @@ import 'package:job_finder/app/modules/message/bindings/message_binding.dart';
 import 'package:job_finder/app/modules/message/views/message_view.dart';
 import 'package:job_finder/app/modules/navigation/bindings/navigation_binding.dart';
 import 'package:job_finder/app/modules/navigation/views/navigation_view.dart';
+import 'package:job_finder/app/modules/post_job/bindings/post_job_binding.dart';
+import 'package:job_finder/app/modules/post_job/views/post_job_view.dart';
 import 'package:job_finder/app/modules/posting/bindings/posting_binding.dart';
 import 'package:job_finder/app/modules/posting/views/posting_view.dart';
 import 'package:job_finder/app/modules/save_job/bindings/save_job_binding.dart';
@@ -60,6 +62,7 @@ class AppPages {
   static const INITIAL_FP = Routes.FORGOT_PASSWORD;
   static const INITIAL_CP = Routes.COMPANY_PAGE;
   static const INITIAL_JP = Routes.CREATE_JOB_POST;
+  static const INITIAL_PJ = Routes.POST_JOB;
 
   static final routes = [
     GetPage(
@@ -141,6 +144,11 @@ class AppPages {
       name: _Paths.CREATE_JOB_POST,
       page: () => CreateJobPostView(),
       binding: CreateJobPostBinding(),
+    ),
+    GetPage(
+      name: _Paths.POST_JOB,
+      page: () => PostJobView(),
+      binding: PostJobBinding(),
     ),
   ];
 }

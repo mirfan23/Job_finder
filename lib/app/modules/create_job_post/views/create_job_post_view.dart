@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:job_finder/app/values/colors.dart';
-import 'package:job_finder/app/values/styles.dart';
 
 import '../controllers/create_job_post_controller.dart';
 

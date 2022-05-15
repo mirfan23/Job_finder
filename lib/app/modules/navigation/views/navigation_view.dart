@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:job_finder/app/modules/add_job/views/add_job_view.dart';
 import 'package:job_finder/app/modules/home/views/home_view.dart';
 import 'package:job_finder/app/modules/message/views/message_view.dart';
 import 'package:job_finder/app/modules/posting/views/posting_view.dart';
