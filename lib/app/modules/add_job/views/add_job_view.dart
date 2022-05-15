@@ -7,6 +7,7 @@ import 'package:job_finder/app/modules/add_job/views/location_view.dart';
 import '../../../values/colors.dart';
 import '../../../values/styles.dart';
 import '../controllers/add_job_controller.dart';
+import 'company_view.dart';
 
 class AddJobView extends GetView<AddJobController> {
   @override
@@ -161,7 +162,9 @@ class AddJobView extends GetView<AddJobController> {
                 height: 10,
               ),
               addJobField(
-                () {},
+                () {
+                  Get.to(AddCompanyView());
+                },
                 "Company",
                 controller.company,
               ),

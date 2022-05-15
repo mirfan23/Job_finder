@@ -48,6 +48,11 @@ class AddJobController extends GetxController {
     backResetSearch();
   }
 
+  void addJobCompany(int index) {
+    company.value = listJobCompany[index][0].toString();
+    backResetSearch();
+  }
+
   void backResetSearch() {
     searchController.text = "";
     searchValue.value = "";
@@ -76,5 +81,58 @@ class AddJobController extends GetxController {
     ["On-site", "Employees come to work"],
     ["Hybrid", "Employees work directly on site or off site"],
     ["Remote", "Employees working off site"],
+  ];
+
+  var listJobCompany = [
+    [
+      "Google",
+      "Company",
+      "Internet",
+    ],
+    [
+      "Apple",
+      "Company",
+      "Electronic goods",
+    ],
+    [
+      "Amazon",
+      "Company",
+      "Internet",
+    ],
+    [
+      "Dribbble",
+      "Company",
+      "Design",
+    ],
+    [
+      "Twitter",
+      "Company",
+      "Internet",
+    ],
+    [
+      "Facebook",
+      "Company",
+      "Internet",
+    ],
+    [
+      "Microsoft",
+      "Company",
+      "Computer software",
+    ],
+    [
+      "Allianz",
+      "Company",
+      "Financial services",
+    ],
+    [
+      "Adobe",
+      "Company",
+      "Computer software",
+    ],
+    [
+      "AXA",
+      "Company",
+      "Insurance",
+    ],
   ];
 }
