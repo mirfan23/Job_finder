@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:job_finder/app/modules/notification/views/your_aplication_view.dart';
 import 'package:job_finder/app/values/colors.dart';
 import 'package:job_finder/app/values/styles.dart';
 
@@ -293,7 +294,9 @@ class _NotificationCardWidget extends GetView<NotificationController> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(YourAplicationView());
+                  },
                   color: MyColors.primaryColor,
                   elevation: 0,
                   shape: RoundedRectangleBorder(
