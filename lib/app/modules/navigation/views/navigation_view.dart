@@ -5,6 +5,7 @@ import 'package:job_finder/app/modules/home/views/home_view.dart';
 import 'package:job_finder/app/modules/message/views/message_view.dart';
 import 'package:job_finder/app/modules/posting/views/posting_view.dart';
 import 'package:job_finder/app/modules/save_job/views/save_job_view.dart';
+import 'package:job_finder/app/routes/app_pages.dart';
 import 'package:job_finder/app/values/colors.dart';
 import 'package:job_finder/app/values/strings.dart';
 
@@ -21,7 +22,7 @@ class NavigationView extends GetView<NavigationController> {
           children: [
             HomeView(),
             PostingView(),
-            // AddJobView(),
+            PostingView(),
             MessageView(),
             SaveJobView(),
           ],
@@ -131,7 +132,9 @@ class NavigationView extends GetView<NavigationController> {
           ),
           Spacer(),
           buttonDialog(
-            () {},
+            () {
+              Get.toNamed(AppPages.INITIAL_AP);
+            },
             MyColors.primaryColor,
             "POST",
           ),
@@ -139,7 +142,9 @@ class NavigationView extends GetView<NavigationController> {
             height: 10,
           ),
           buttonDialog(
-            () {},
+            () {
+              Get.toNamed(AppPages.INITIAL_AJ);
+            },
             MyColors.secondaryColor,
             "MAKE A JOB",
           ),
