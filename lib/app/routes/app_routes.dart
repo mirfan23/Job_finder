@@ -24,6 +24,7 @@ abstract class Routes {
   static const COMPANY_PAGE = _Paths.COMPANY_PAGE;
   static const CREATE_JOB_POST = _Paths.CREATE_JOB_POST;
   static const ADD_POST = _Paths.ADD_POST;
+  static const NOTIFICATION = _Paths.NOTIFICATION;
 }
 
 abstract class _Paths {
@@ -45,4 +46,5 @@ abstract class _Paths {
   static const COMPANY_PAGE = '/company-page';
   static const CREATE_JOB_POST = '/create-job-post';
   static const ADD_POST = '/add-post';
+  static const NOTIFICATION = '/notification';
 }

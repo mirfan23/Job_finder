@@ -14,6 +14,8 @@ import 'package:job_finder/app/modules/message/bindings/message_binding.dart';
 import 'package:job_finder/app/modules/message/views/message_view.dart';
 import 'package:job_finder/app/modules/navigation/bindings/navigation_binding.dart';
 import 'package:job_finder/app/modules/navigation/views/navigation_view.dart';
+import 'package:job_finder/app/modules/notification/bindings/notification_binding.dart';
+import 'package:job_finder/app/modules/notification/views/notification_view.dart';
 import 'package:job_finder/app/modules/posting/bindings/posting_binding.dart';
 import 'package:job_finder/app/modules/posting/views/posting_view.dart';
 import 'package:job_finder/app/modules/save_job/bindings/save_job_binding.dart';
@@ -62,6 +64,7 @@ class AppPages {
   static const INITIAL_CP = Routes.COMPANY_PAGE;
   static const INITIAL_AJ = Routes.ADD_JOB;
   static const INITIAL_AP = Routes.ADD_POST;
+  static const INITIAL_NT = Routes.NOTIFICATION;
 
   static final routes = [
     GetPage(
@@ -148,6 +151,11 @@ class AppPages {
       name: _Paths.ADD_POST,
       page: () => AddPostView(),
       binding: AddPostBinding(),
+    ),
+    GetPage(
+      name: _Paths.NOTIFICATION,
+      page: () => NotificationView(),
+      binding: NotificationBinding(),
     ),
   ];
 }
