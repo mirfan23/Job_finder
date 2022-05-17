@@ -17,168 +17,173 @@ class JobList extends GetView<HomeController> {
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
       itemBuilder: (_, __) {
-        return Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(
-              10,
+        return InkWell(
+          onTap: () {
+            Get.toNamed(AppPages.INITIAL_DC);
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(
+                10,
+              ),
+              // border: Border
+              color: MyColors.purewhite,
             ),
-            // border: Border
-            color: MyColors.purewhite,
-          ),
-          padding: EdgeInsets.all(
-            20,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Image(
-                    image: AssetImage(
-                      'assets/images/logo.png',
-                    ),
-                    height: 50,
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        "Product Designer",
-                        style: TextStyle(
-                          color: MyColors.primaryColor,
-                          fontFamily: MyStyles.Bold,
-                          fontSize: 18,
-                        ),
-                      ),
-                      Text("Google inc . California, USA"),
-                    ],
-                  ),
-                  Spacer(),
-                  GestureDetector(
-                    onTap: () {
-                      controller.bookmark.toggle();
-                    },
-                    child: Obx(
-                      () => Icon(
-                        controller.bookmark.isTrue
-                            ? Icons.bookmark
-                            : Icons.bookmark_outline,
-                        size: 30,
-                        color: controller.bookmark.isTrue
-                            ? Colors.yellow[600]
-                            : MyColors.grey,
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              RichText(
-                text: TextSpan(
+            padding: EdgeInsets.all(
+              20,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
                   children: [
-                    TextSpan(
-                      style: TextStyle(
-                        color: MyColors.primaryColor,
-                        fontSize: 14,
-                        fontFamily: MyStyles.Bold,
+                    Image(
+                      image: AssetImage(
+                        'assets/images/logo.png',
                       ),
-                      text: "\$15K",
+                      height: 50,
                     ),
-                    TextSpan(
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Column(
                       children: [
-                        TextSpan(
+                        Text(
+                          "Product Designer",
                           style: TextStyle(
-                            color: MyColors.darkGray,
-                            fontSize: 13,
+                            color: MyColors.primaryColor,
+                            fontFamily: MyStyles.Bold,
+                            fontSize: 18,
                           ),
-                          text: "/Mo",
                         ),
+                        Text("Google inc . California, USA"),
                       ],
                     ),
+                    Spacer(),
+                    GestureDetector(
+                      onTap: () {
+                        controller.bookmark.toggle();
+                      },
+                      child: Obx(
+                        () => Icon(
+                          controller.bookmark.isTrue
+                              ? Icons.bookmark
+                              : Icons.bookmark_outline,
+                          size: 30,
+                          color: controller.bookmark.isTrue
+                              ? Colors.yellow[600]
+                              : MyColors.grey,
+                        ),
+                      ),
+                    )
                   ],
                 ),
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Row(
-                children: [
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 17,
-                      vertical: 5,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(
-                        5,
+                SizedBox(
+                  height: 20,
+                ),
+                RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        style: TextStyle(
+                          color: MyColors.primaryColor,
+                          fontSize: 14,
+                          fontFamily: MyStyles.Bold,
+                        ),
+                        text: "\$15K",
                       ),
-                      color: MyColors.whiteGrey,
-                    ),
-                    child: Text(
-                      "Senior Designer",
-                      style: TextStyle(
-                        color: MyColors.darkGray,
-                        fontSize: 12,
-                        fontFamily: MyStyles.Regular,
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            style: TextStyle(
+                              color: MyColors.darkGray,
+                              fontSize: 13,
+                            ),
+                            text: "/Mo",
+                          ),
+                        ],
                       ),
-                    ),
+                    ],
                   ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 13,
-                      vertical: 5,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(
-                        5,
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 17,
+                        vertical: 5,
                       ),
-                      color: MyColors.whiteGrey,
-                    ),
-                    child: Text(
-                      "Full Time",
-                      style: TextStyle(
-                        color: MyColors.darkGray,
-                        fontSize: 12,
-                        fontFamily: MyStyles.Regular,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(
+                          5,
+                        ),
+                        color: MyColors.whiteGrey,
                       ),
-                    ),
-                  ),
-                  Spacer(),
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 5,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(
-                        5,
-                      ),
-                      color: MyColors.lightcream,
-                    ),
-                    child: InkWell(
                       child: Text(
-                        "Apply",
+                        "Senior Designer",
                         style: TextStyle(
                           color: MyColors.darkGray,
                           fontSize: 12,
                           fontFamily: MyStyles.Regular,
                         ),
                       ),
-                      onTap: () {
-                        Get.toNamed(Routes.DESCRIPTION);
-                      },
                     ),
-                  ),
-                ],
-              )
-            ],
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 13,
+                        vertical: 5,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(
+                          5,
+                        ),
+                        color: MyColors.whiteGrey,
+                      ),
+                      child: Text(
+                        "Full Time",
+                        style: TextStyle(
+                          color: MyColors.darkGray,
+                          fontSize: 12,
+                          fontFamily: MyStyles.Regular,
+                        ),
+                      ),
+                    ),
+                    Spacer(),
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 5,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(
+                          5,
+                        ),
+                        color: MyColors.lightcream,
+                      ),
+                      child: InkWell(
+                        child: Text(
+                          "Apply",
+                          style: TextStyle(
+                            color: MyColors.darkGray,
+                            fontSize: 12,
+                            fontFamily: MyStyles.Regular,
+                          ),
+                        ),
+                        onTap: () {
+                          Get.toNamed(Routes.DESCRIPTION);
+                        },
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         );
       },

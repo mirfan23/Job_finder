@@ -24,7 +24,7 @@ void main() {
       ),
       child: GetMaterialApp(
         title: "Application",
-        initialRoute: AppPages.INITIAL_NT,
+        initialRoute: AppPages.INITIAL_NV,
         getPages: AppPages.routes,
         debugShowCheckedModeBanner: false,
       ),

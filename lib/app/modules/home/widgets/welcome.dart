@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:job_finder/app/routes/app_pages.dart';
 
 import '../../../values/colors.dart';
 import '../../../values/styles.dart';
@@ -10,18 +11,24 @@ class WelcomeWidget extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Align(
-          alignment: Alignment.topRight,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(
-              Get.width,
-            ),
-            child: Image(
-              image: AssetImage(
-                'assets/images/girl-vektor.jpg',
+        InkWell(
+          onTap: () {
+            Get.toNamed(AppPages.INITIAL_PR);
+          },
+          borderRadius: BorderRadius.circular(Get.width),
+          child: Align(
+            alignment: Alignment.topRight,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(
+                Get.width,
               ),
-              height: 50,
-              width: 50,
+              child: Image(
+                image: AssetImage(
+                  'assets/images/girl-vektor.jpg',
+                ),
+                height: 50,
+                width: 50,
+              ),
             ),
           ),
         ),
