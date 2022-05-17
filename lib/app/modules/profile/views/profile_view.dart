@@ -241,12 +241,14 @@ class _ProfileCardWidget extends GetView<ProfileController> {
                 child: CircleAvatar(
                   radius: 12,
                   backgroundColor: MyColors.orange.withOpacity(0.3),
-                  child: Icon(
-                    controller.listValueController[index].isEmpty
-                        ? Icons.add_rounded
-                        : Icons.edit_outlined,
-                    color: MyColors.orange,
-                    size: 15,
+                  child: Obx(
+                    () => Icon(
+                      controller.listValueController[index].isEmpty
+                          ? Icons.add_rounded
+                          : Icons.edit_outlined,
+                      color: MyColors.orange,
+                      size: 15,
+                    ),
                   ),
                 ),
               )

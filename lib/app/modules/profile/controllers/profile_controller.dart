@@ -10,12 +10,18 @@ import 'package:job_finder/app/modules/profile/views/language_view.dart';
 class ProfileController extends GetxController {
   late TextEditingController aboutMeController;
 
+  void addAboutMe() {
+    listValueController[0] = aboutMeController.text;
+    Get.back();
+    Get.back();
+  }
+
   @override
   void onInit() {
     super.onInit();
     aboutMeController = TextEditingController();
-    listValueController[0] =
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus id commodo egestas metus interdum dolor.";
+    // listValueController[0] =
+    //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus id commodo egestas metus interdum dolor.";
   }
 
   @override
