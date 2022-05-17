@@ -8,7 +8,16 @@ import 'package:job_finder/app/modules/profile/views/add_work_experience_view.da
 import 'package:job_finder/app/modules/profile/views/language_view.dart';
 
 class ProfileController extends GetxController {
+  // About me
   late TextEditingController aboutMeController;
+
+  // Add work experience
+  var positionNow = false.obs;
+  late TextEditingController jobTitleController;
+  late TextEditingController companyController;
+  late TextEditingController startDateController;
+  late TextEditingController endDateController;
+  late TextEditingController descriptionWorkController;
 
   void addAboutMe() {
     listValueController[0] = aboutMeController.text;
@@ -16,18 +25,37 @@ class ProfileController extends GetxController {
     Get.back();
   }
 
+  void addWorkExperience() {
+    listValueController[1] =
+        "${jobTitleController.text}\n${companyController.text}\n${startDateController.text} - ${endDateController.text} • ${int.parse(endDateController.text.split(" ")[0]) - int.parse(startDateController.text.split(" ")[0])}";
+    Get.back();
+    Get.back();
+  }
+
   @override
   void onInit() {
     super.onInit();
+    // about me
     aboutMeController = TextEditingController();
-    // listValueController[0] =
-    //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus id commodo egestas metus interdum dolor.";
+    // add work experience
+    jobTitleController = TextEditingController();
+    companyController = TextEditingController();
+    startDateController = TextEditingController();
+    endDateController = TextEditingController();
+    descriptionWorkController = TextEditingController();
   }
 
   @override
   void dispose() {
     super.dispose();
+    // about me
     aboutMeController.dispose();
+    // add work experience
+    jobTitleController.dispose();
+    companyController.dispose();
+    startDateController.dispose();
+    endDateController.dispose();
+    descriptionWorkController.dispose();
   }
 
   var listProfileMenu = [

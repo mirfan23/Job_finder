@@ -74,7 +74,7 @@ class AboutMeView extends GetView<ProfileController> {
                             borderSide: BorderSide.none,
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
