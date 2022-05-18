@@ -26,10 +26,35 @@ class ProfileController extends GetxController {
   }
 
   void addWorkExperience() {
-    listValueController[1] =
-        "${jobTitleController.text}\n${companyController.text}\n${startDateController.text} - ${endDateController.text} • ${int.parse(endDateController.text.split(" ")[0]) - int.parse(startDateController.text.split(" ")[0])}";
+    listWorkExperience.add([
+      jobTitleController.text,
+      companyController.text,
+      startDateController.text,
+      endDateController.text,
+      positionNow.value,
+      descriptionWorkController.text,
+    ]);
+    print(listWorkExperience);
+    jobTitleController.text = "";
+    companyController.text = "";
+    startDateController.text = "";
+    endDateController.text = "";
+    positionNow.value = false;
+    descriptionWorkController.text = "";
     Get.back();
     Get.back();
+  }
+
+  void editWorkExperience(int index) {
+    print(listWorkExperience[index]);
+    jobTitleController.text = listWorkExperience[index][0];
+    companyController.text = listWorkExperience[index][1];
+    startDateController.text = listWorkExperience[index][2];
+    endDateController.text = listWorkExperience[index][3];
+    positionNow.value = listWorkExperience[index][4] == "true" ? true : false;
+    descriptionWorkController.text = listWorkExperience[index][5];
+
+    Get.to(AddWorkExperienceView());
   }
 
   @override
@@ -43,6 +68,12 @@ class ProfileController extends GetxController {
     startDateController = TextEditingController();
     endDateController = TextEditingController();
     descriptionWorkController = TextEditingController();
+
+    try {
+      print(listWorkExperience[0].isNotEmpty);
+    } catch (err) {
+      print(err);
+    }
   }
 
   @override
@@ -84,6 +115,9 @@ class ProfileController extends GetxController {
     "",
     "",
   ].obs;
+
+  var listWorkExperience = [].obs;
+
   var listPageClicked = [
     AboutMeView(),
     AddWorkExperienceView(),

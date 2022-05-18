@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -171,7 +173,6 @@ class ProfileView extends GetView<ProfileController> {
                       Get.to(controller.listPageClicked[index]);
                     },
                     index: index,
-                    text: controller.listValueController[index],
                   );
                 },
                 separatorBuilder: (_, __) {
@@ -196,12 +197,16 @@ class _ProfileCardWidget extends GetView<ProfileController> {
   const _ProfileCardWidget({
     Key? key,
     required this.index,
-    required this.text,
     required this.onTap,
+    // this.title,
+    // this.company,
+    // this.time,
   }) : super(key: key);
 
   final int index;
-  final String text;
+  // final title;
+  // final company;
+  // final time;
   final Function() onTap;
 
   @override
@@ -254,42 +259,180 @@ class _ProfileCardWidget extends GetView<ProfileController> {
               )
             ],
           ),
-          Obx(
-            () {
-              return controller.listValueController[index].isEmpty
-                  ? SizedBox()
-                  : Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Container(
-                          height: 2,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(Get.width),
-                            color: MyColors.whiteGrey,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          controller.listValueController[index],
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontFamily: MyStyles.Regular,
-                            fontSize: 14,
-                            color: MyColors.content,
-                          ),
-                        )
-                      ],
-                    );
-            },
-          ),
+          // Obx(
+          //   () {
+          //     return
+          index == 0 && controller.listValueController[0].isNotEmpty
+              ? _cardCustomDefault()
+              : index == 1 && controller.listWorkExperience.isNotEmpty
+                  ? _cardCustomDetailWidget()
+                  : SizedBox(),
+          // return controller.listValueController[0].isEmpty
+          //     ? Container(
+          //         height: 20,
+          //         width: 100,
+          //         color: Colors.red,
+          //       )
+          //     : index == 0
+          //         ? _cardCustomDefault()
+          //         : _cardCustomDetailWidget();
+          //   },
+          // ),
         ],
       ),
+    );
+  }
+
+  Widget _cardCustomDefault() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 20,
+        ),
+        Container(
+          height: 2,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(Get.width),
+            color: MyColors.whiteGrey,
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Text(
+          controller.listValueController[index],
+          textAlign: TextAlign.start,
+          style: TextStyle(
+            fontFamily: MyStyles.Regular,
+            fontSize: 14,
+            color: MyColors.content,
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget _cardCustomDetailWidget() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 20,
+        ),
+        Container(
+          height: 2,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(Get.width),
+            color: MyColors.whiteGrey,
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        ListView.separated(
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemBuilder: (_, index) {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        controller.listWorkExperience[index][0].toString(),
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          fontFamily: MyStyles.Bold,
+                          fontSize: 14,
+                          color: MyColors.subTittle,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        controller.listWorkExperience[index][1].toString(),
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          fontFamily: MyStyles.Regular,
+                          fontSize: 12,
+                          color: MyColors.content,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            controller.listWorkExperience[index][2].toString() +
+                                " - " +
+                                controller.listWorkExperience[index][3]
+                                    .toString(),
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                              fontFamily: MyStyles.Regular,
+                              fontSize: 12,
+                              color: MyColors.content,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Icon(
+                            Icons.circle,
+                            size: 5,
+                            color: MyColors.grey,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            "${int.parse(controller.listWorkExperience[index][3].toString().split(" ")[0]) - int.parse(controller.listWorkExperience[index][3].toString().split(" ")[0])} Years",
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                              fontFamily: MyStyles.Regular,
+                              fontSize: 12,
+                              color: MyColors.content,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    controller.editWorkExperience(index);
+                  },
+                  child: CircleAvatar(
+                    radius: 12,
+                    backgroundColor: MyColors.orange.withOpacity(0.3),
+                    child: Icon(
+                      Icons.edit_rounded,
+                      color: MyColors.orange,
+                      size: 12,
+                    ),
+                  ),
+                ),
+              ],
+            );
+          },
+          separatorBuilder: (_, __) {
+            return SizedBox(
+              height: 10,
+            );
+          },
+          itemCount: controller.listWorkExperience.length,
+        ),
+      ],
     );
   }
 }
